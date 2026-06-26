@@ -315,7 +315,7 @@ async function loadAll(){
   servicios=srv||[];turnos=trn||[];config={};
   (cfg||[]).forEach(c=>config[c.clave]=c.valor);
   document.getElementById('nav-negocio').textContent=config.nombre_negocio||'Lavadero DMV';
-  renderDashboard();renderTurnos();renderServicios();loadConfig();
+  renderDashboard();loadTurnos();renderServicios();loadConfig();
 }
 function showPage(p){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
