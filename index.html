@@ -904,13 +904,13 @@ async function saveProducto(){
   if(!nombre){toast('⚠ Ingresá el nombre');return;}
   const data={nombre,descripcion:document.getElementById('pr-desc').value.trim()||null,precio:parseFloat(document.getElementById('pr-precio').value)||0,activo:document.getElementById('pr-activo').value==='true',foto_url:document.getElementById('pr-foto').value.trim()||null};
   let error;
-  if(editProdId){({error}=await sb.from('productos').update(data).eq('id',editProdId));}
-  else{({error}=await sb.from('productos').insert([data]));}
+  if(editProdId){({error}=await sb.from('productos_lavadero').update(data).eq('id',editProdId).eq('user_id',USER_ID));}
+  else{({error}=await sb.from('productos_lavadero').insert([{...data,user_id:USER_ID}]));}
   if(error){toast('Error: '+error.message);return;}
   toast('Producto guardado');closeModalProducto();await loadAll();
 }
 
-async function deleteProducto(id){if(!confirm('¿Eliminar este producto?'))return;await sb.from('productos').delete().eq('id',id);await loadAll();toast('Eliminado');}
+async function deleteProducto(id){if(!confirm('¿Eliminar este producto?'))return;await sb.from('productos_lavadero').delete().eq('id',id).eq('user_id',USER_ID);await loadAll();toast('Eliminado');}
 
 function showPage(p){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
