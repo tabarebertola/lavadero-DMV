@@ -557,74 +557,8 @@ tr:last-child td{border-bottom:none}
   </div>
 </div>
 
-  <div class="modal">
-    <div class="modal-head"><h2>Nuevo turno</h2><button class="ic-btn" onclick="closeModalTurno()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="modal-body">
-      <div class="g2"><div class="field"><label>Fecha</label><input type="date" id="t-fecha"></div><div class="field"><label>Hora</label><input type="time" id="t-hora"></div></div>
-      <div class="field"><label>Nombre cliente</label><input type="text" id="t-nombre" placeholder="Juan García"></div>
-      <div class="field"><label>WhatsApp</label><input type="tel" id="t-wsp" placeholder="3491234567"></div>
-      <div class="g2">
-        <div class="field"><label>Servicio</label><select id="t-servicio"></select></div>
-        <div class="field"><label>Vehículo</label>
-          <select id="t-vehiculo"><option value="">Seleccioná...</option><option>Auto</option><option>Moto</option><option>Camioneta / SUV</option></select>
-        </div>
-      </div>
-      <div class="g2"><div class="field"><label>Patente</label><input type="text" id="t-patente" placeholder="AA 123 BB"></div><div class="field"><label>Precio ($)</label><input type="number" id="t-precio"></div></div>
-      <div class="field"><label>Estado</label><select id="t-estado"><option value="pendiente">Pendiente</option><option value="confirmado">Confirmado</option></select></div>
-    </div>
-    <div class="modal-foot"><button class="btn" onclick="closeModalTurno()">Cancelar</button><button class="btn solid" onclick="saveTurno()">Guardar</button></div>
-  </div>
-</div>
-
-<!-- MODAL SERVICIO -->
-<div class="overlay" id="overlay-servicio">
-  <div class="modal">
-    <div class="modal-head"><h2 id="srv-modal-titulo">Nuevo servicio</h2><button class="ic-btn" onclick="closeModalServicio()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="modal-body">
-      <div class="field"><label>Nombre</label><input type="text" id="s-nombre" placeholder="Lavado completo"></div>
-      <div style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:12px;padding:14px;margin-bottom:13px">
-      <div style="font-size:10px;font-weight:800;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Precios y duración por vehículo</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
-        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🚗 AUTO</div>
-        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🛻 CAMIONETA</div>
-        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🏍️ MOTO</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
-        <input type="number" id="s-precio-auto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-        <input type="number" id="s-precio-camioneta" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-        <input type="number" id="s-precio-moto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
-        <input type="number" id="s-dur-auto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-        <input type="number" id="s-dur-camioneta" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-        <input type="number" id="s-dur-moto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
-      </div>
-    </div>
-    <input type="hidden" id="s-precio" value="0">
-    <input type="hidden" id="s-duracion" value="30">
-      <div class="field"><label>Estado</label><select id="s-activo"><option value="true">Activo</option><option value="false">Inactivo</option></select></div>
-    </div>
-    <div class="modal-foot"><button class="btn" onclick="closeModalServicio()">Cancelar</button><button class="btn solid" onclick="saveServicio()">Guardar</button></div>
-  </div>
-</div>
-
-<!-- MODAL PRODUCTO -->
-<div class="overlay" id="overlay-producto">
-  <div class="modal">
-    <div class="modal-head"><h2 id="prod-modal-titulo">Nuevo producto</h2><button class="ic-btn" onclick="closeModalProducto()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="modal-body">
-      <div class="field"><label>Nombre del producto</label><input type="text" id="pr-nombre" placeholder="Alfombra universal"></div>
-      <div class="field"><label>Descripción (opcional)</label><input type="text" id="pr-desc" placeholder="Para todo tipo de vehículo"></div>
-      <div class="g2">
-        <div class="field"><label>Precio ($)</label><input type="number" id="pr-precio" placeholder="0"></div>
-        <div class="field"><label>Estado</label><select id="pr-activo"><option value="true">Activo</option><option value="false">Inactivo</option></select></div>
-      </div>
-      <div class="field"><label>URL de foto (opcional)</label><input type="text" id="pr-foto" placeholder="https://..."></div>
-    </div>
-    <div class="modal-foot"><button class="btn" onclick="closeModalProducto()">Cancelar</button><button class="btn solid" onclick="saveProducto()">Guardar</button></div>
-  </div>
-</div>
-
+<!-- MODALES -->
+<!-- MODAL TURNO -->
 
 <div class="toast" id="toast"></div>
 
@@ -861,7 +795,7 @@ async function confirmarTurno(){
   try{
     const srv=servicios.find(s=>s.id===selServicio);
     const vehiculoCompleto=`${selVeh} — ${modelo}`;
-    const {error}=await sb.from('turnos').insert([{
+    const {error}=await sb.from('turnos_lavadero').insert([{user_id:USER_ID,
       fecha:selFecha,hora:selHora,nombre,whatsapp:'-',
       vehiculo:vehiculoCompleto,patente:null,
       servicio:srv.nombre,precio:srv.precio,estado:'confirmado'
@@ -970,13 +904,13 @@ async function saveProducto(){
   if(!nombre){toast('⚠ Ingresá el nombre');return;}
   const data={nombre,descripcion:document.getElementById('pr-desc').value.trim()||null,precio:parseFloat(document.getElementById('pr-precio').value)||0,activo:document.getElementById('pr-activo').value==='true',foto_url:document.getElementById('pr-foto').value.trim()||null};
   let error;
-  if(editProdId){({error}=await sb.from('productos_lavadero').update(data).eq('id',editProdId).eq('user_id',USER_ID));}
-  else{({error}=await sb.from('productos_lavadero').insert([{...data,user_id:USER_ID}]));}
+  if(editProdId){({error}=await sb.from('productos').update(data).eq('id',editProdId));}
+  else{({error}=await sb.from('productos').insert([data]));}
   if(error){toast('Error: '+error.message);return;}
   toast('Producto guardado');closeModalProducto();await loadAll();
 }
 
-async function deleteProducto(id){if(!confirm('¿Eliminar este producto?'))return;await sb.from('productos_lavadero').delete().eq('id',id).eq('user_id',USER_ID);await loadAll();toast('Eliminado');}
+async function deleteProducto(id){if(!confirm('¿Eliminar este producto?'))return;await sb.from('productos').delete().eq('id',id);await loadAll();toast('Eliminado');}
 
 function showPage(p){
   document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
@@ -1233,7 +1167,6 @@ function loadConfig(){
   document.getElementById('cfg-wsp').value=config.whatsapp_negocio||'';
   document.getElementById('cfg-inicio').value=config.horario_inicio||'08:00';
   document.getElementById('cfg-fin').value=config.horario_fin||'18:00';
-  document.getElementById('cfg-duracion').value=config.duracion_defecto||'30';
 }
 
 async function saveConfig(){
@@ -1242,7 +1175,6 @@ async function saveConfig(){
     {clave:'whatsapp_negocio',valor:document.getElementById('cfg-wsp').value},
     {clave:'horario_inicio',valor:document.getElementById('cfg-inicio').value},
     {clave:'horario_fin',valor:document.getElementById('cfg-fin').value},
-    {clave:'duracion_defecto',valor:document.getElementById('cfg-duracion').value},
   ];
   const newPass=document.getElementById('cfg-pass').value;
   if(newPass) cfg.push({clave:'password_dueno',valor:newPass});
