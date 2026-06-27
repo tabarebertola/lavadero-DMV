@@ -613,8 +613,9 @@ tr:last-child td{border-bottom:none}
 
 <script>
 
-const SUPABASE_URL='https://hlmsddzvwcxbjmjjqtgy.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsbXNkZHp2d2N4YmptampxdGd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNzIxODAsImV4cCI6MjA5Nzc0ODE4MH0.qbRAQP41ni085xrqiGui_esThfANcmQW8kqczoN-zA8';
+const SUPABASE_URL='https://fbmcqpuohcaffillaund.supabase.co';
+const SUPABASE_KEY='sb_publishable_Bx24U3RsiRJEukDf3CkbNA_OW8pKiN-';
+const USER_ID='20cb2080-45a2-4ad8-9730-2b4e512f678d';
 const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 const SERVICIOS_DEFAULT=[
@@ -657,10 +658,10 @@ function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t
 
 async function loadAll(){
   const[{data:srv},{data:cfg},{data:trn},{data:prods}]=await Promise.all([
-    sb.from('servicios').select('*').order('id'),
-    sb.from('config').select('*'),
-    sb.from('turnos').select('*').order('fecha').order('hora'),
-    sb.from('productos').select('*').order('id')
+    sb.from('servicios_lavadero').select('*').eq('user_id',USER_ID).order('id'),
+    sb.from('config_lavadero').select('*').eq('user_id',USER_ID),
+    sb.from('turnos_lavadero').select('*').eq('user_id',USER_ID).order('fecha').order('hora'),
+    sb.from('productos_lavadero').select('*').eq('user_id',USER_ID).order('id')
   ]);
   servicios=(srv&&srv.length)?srv:SERVICIOS_DEFAULT;
   turnos=trn||[];
@@ -1035,7 +1036,7 @@ async function saveHorarios(){
   });
   cfg.push({clave:'turnos_simultaneos',valor:document.getElementById('cfg-simultaneous').value});
   cfg.push({clave:'duracion_defecto',valor:document.getElementById('cfg-dur-panel').value});
-  for(const c of cfg) await sb.from('config').upsert({clave:c.clave,valor:c.valor},{onConflict:'clave'});
+  for(const c of cfg) await sb.from('config_lavadero').upsert({user_id:USER_ID,clave:c.clave,valor:c.valor},{onConflict:'user_id,clave'});
   toast('✓ Horarios guardados');
   await loadAll();
 }
@@ -1225,7 +1226,7 @@ async function saveConfig(){
   ];
   const newPass=document.getElementById('cfg-pass').value;
   if(newPass) cfg.push({clave:'password_dueno',valor:newPass});
-  for(const c of cfg) await sb.from('config').upsert({clave:c.clave,valor:c.valor},{onConflict:'clave'});
+  for(const c of cfg) await sb.from('config_lavadero').upsert({user_id:USER_ID,clave:c.clave,valor:c.valor},{onConflict:'user_id,clave'});
   toast('✓ Configuración guardada');await loadAll();
 }
 
