@@ -515,15 +515,25 @@ tr:last-child td{border-bottom:none}
     <div class="modal-body">
       <div class="field"><label>Nombre</label><input type="text" id="s-nombre" placeholder="Lavado completo"></div>
       <div style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:12px;padding:14px;margin-bottom:13px">
-      <div style="font-size:10px;font-weight:800;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Precios por vehículo</div>
-      <div class="g2" style="gap:8px">
-        <div class="field"><label>🚗 Auto ($)</label><input type="number" id="s-precio-auto" placeholder="0"></div>
-        <div class="field"><label>🛻 Camioneta ($)</label><input type="number" id="s-precio-camioneta" placeholder="0"></div>
+      <div style="font-size:10px;font-weight:800;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Precios y duración por vehículo</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🚗 AUTO</div>
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🛻 CAMIONETA</div>
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🏍️ MOTO</div>
       </div>
-      <div class="field" style="margin-bottom:0"><label>🏍️ Moto ($)</label><input type="number" id="s-precio-moto" placeholder="0"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+        <input type="number" id="s-precio-auto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-precio-camioneta" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-precio-moto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <input type="number" id="s-dur-auto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-dur-camioneta" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-dur-moto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+      </div>
     </div>
-    <div class="field"><label>Duración (min)</label><input type="number" id="s-duracion"></div>
     <input type="hidden" id="s-precio" value="0">
+    <input type="hidden" id="s-duracion" value="30">
       <div class="field"><label>Estado</label><select id="s-activo"><option value="true">Activo</option><option value="false">Inactivo</option></select></div>
     </div>
     <div class="modal-foot"><button class="btn" onclick="closeModalServicio()">Cancelar</button><button class="btn solid" onclick="saveServicio()">Guardar</button></div>
@@ -576,15 +586,25 @@ tr:last-child td{border-bottom:none}
     <div class="modal-body">
       <div class="field"><label>Nombre</label><input type="text" id="s-nombre" placeholder="Lavado completo"></div>
       <div style="background:#f9f9f9;border:1px solid #e8e8e8;border-radius:12px;padding:14px;margin-bottom:13px">
-      <div style="font-size:10px;font-weight:800;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Precios por vehículo</div>
-      <div class="g2" style="gap:8px">
-        <div class="field"><label>🚗 Auto ($)</label><input type="number" id="s-precio-auto" placeholder="0"></div>
-        <div class="field"><label>🛻 Camioneta ($)</label><input type="number" id="s-precio-camioneta" placeholder="0"></div>
+      <div style="font-size:10px;font-weight:800;color:#888;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Precios y duración por vehículo</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🚗 AUTO</div>
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🛻 CAMIONETA</div>
+        <div style="font-size:9px;font-weight:700;color:#aaa;text-align:center">🏍️ MOTO</div>
       </div>
-      <div class="field" style="margin-bottom:0"><label>🏍️ Moto ($)</label><input type="number" id="s-precio-moto" placeholder="0"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px">
+        <input type="number" id="s-precio-auto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-precio-camioneta" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-precio-moto" placeholder="Precio $" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <input type="number" id="s-dur-auto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-dur-camioneta" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+        <input type="number" id="s-dur-moto" placeholder="Min" style="padding:8px;border:1.5px solid #e8e8e8;border-radius:8px;font-size:13px;font-family:inherit;outline:none;width:100%">
+      </div>
     </div>
-    <div class="field"><label>Duración (min)</label><input type="number" id="s-duracion"></div>
     <input type="hidden" id="s-precio" value="0">
+    <input type="hidden" id="s-duracion" value="30">
       <div class="field"><label>Estado</label><select id="s-activo"><option value="true">Activo</option><option value="false">Inactivo</option></select></div>
     </div>
     <div class="modal-foot"><button class="btn" onclick="closeModalServicio()">Cancelar</button><button class="btn solid" onclick="saveServicio()">Guardar</button></div>
@@ -1178,13 +1198,16 @@ function openModalServicio(id=null){
   document.getElementById('srv-modal-titulo').textContent=id?'Editar servicio':'Nuevo servicio';
   if(id){const s=servicios.find(x=>x.id===id);if(s){
     const pv=s.precios_vehiculo||{};
+    const dv=s.duraciones_vehiculo||{};
     document.getElementById('s-nombre').value=s.nombre;
     document.getElementById('s-precio-auto').value=pv.auto||s.precio||0;
     document.getElementById('s-precio-camioneta').value=pv.camioneta||0;
     document.getElementById('s-precio-moto').value=pv.moto||0;
-    document.getElementById('s-duracion').value=s.duracion_min;
+    document.getElementById('s-dur-auto').value=dv.auto||s.duracion_min||30;
+    document.getElementById('s-dur-camioneta').value=dv.camioneta||s.duracion_min||30;
+    document.getElementById('s-dur-moto').value=dv.moto||s.duracion_min||30;
     document.getElementById('s-activo').value=String(s.activo);}}
-  else{document.getElementById('s-nombre').value='';document.getElementById('s-precio-auto').value=0;document.getElementById('s-precio-camioneta').value=0;document.getElementById('s-precio-moto').value=0;document.getElementById('s-duracion').value=30;document.getElementById('s-activo').value='true';}
+  else{document.getElementById('s-nombre').value='';['s-precio-auto','s-precio-camioneta','s-precio-moto'].forEach(i=>document.getElementById(i).value=0);['s-dur-auto','s-dur-camioneta','s-dur-moto'].forEach(i=>document.getElementById(i).value=30);document.getElementById('s-activo').value='true';}
   document.getElementById('overlay-servicio').classList.add('open');
 }
 function closeModalServicio(){document.getElementById('overlay-servicio').classList.remove('open');}
